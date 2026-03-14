@@ -24,6 +24,7 @@ urlpatterns = [
     path("api/products/", include("products.urls")),
     path("api/wishlist/", include("wishlist.urls")),
     path("api/cart/", include("cart.urls")),
+    path('api/orders/', include('orders.urls')),
     path('api/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

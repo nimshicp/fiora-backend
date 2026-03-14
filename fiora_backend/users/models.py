@@ -12,6 +12,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(unique=True, db_index=True)
     username = models.CharField(max_length=150, unique=True)
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
 
     role = models.CharField(
         max_length=20,

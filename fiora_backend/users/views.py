@@ -1,15 +1,16 @@
 from django.shortcuts import render
 
-# Create your views here.
-from django.shortcuts import render
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import RegisterSerializer,LoginSerializer
+from .serializers import RegisterSerializer,LoginSerializer,ProfileSerializer
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.exceptions import AuthenticationFailed
+from google.oauth2 import id_token
+from google.auth.transport import requests
+from django.conf import settings
+from .models import User
 
 
 class RegisterAPIView(APIView):
@@ -105,3 +106,69 @@ class LogoutAPIView(APIView):
         response.delete_cookie("refresh_token")
 
         return response
+    
+class ProfileAPIView(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        serializer = ProfileSerializer(request.user)
+        return Response(serializer.data)
+
+    def patch(self, request):
+
+        serializer = ProfileSerializer(
+            request.user,
+            data=request.data,
+            partial=True
+        )
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+
+        return Response(serializer.errors)  
+
+
+
+
+
+class GoogleLoginAPIView(APIView):
+
+    def post(self, request):
+
+        token = request.data.get("token")
+
+        if not token:
+            return Response({"error": "Token missing"}, status=400)
+
+        try:
+
+            idinfo = id_token.verify_oauth2_token(
+                token,
+                requests.Request(),
+                settings.GOOGLE_CLIENT_ID
+            )
+
+            email = idinfo["email"]
+            name = idinfo.get("name", "")
+
+            user, created = User.objects.get_or_create(
+                email=email,
+                defaults={
+                    "username": name.replace(" ", "").lower()
+                }
+            )
+
+            refresh = RefreshToken.for_user(user)
+
+            return Response({
+                "access": str(refresh.access_token),
+                "refresh": str(refresh),
+            })
+
+        except ValueError:
+            return Response(
+                {"error": "Invalid Google token"},
+                status=status.HTTP_400_BAD_REQUEST
+            )          

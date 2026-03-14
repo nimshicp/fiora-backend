@@ -15,6 +15,8 @@ from pathlib import Path
 CORS_ALLOW_ALL_ORIGINS = True
 AUTH_USER_MODEL = "users.User"
 
+GOOGLE_CLIENT_ID = "849764160450-506j3qom5anr1j9b30k1j3o2c0g4dtig.apps.googleusercontent.com"
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,7 +47,8 @@ INSTALLED_APPS = [
     'users',
     'products',
     'wishlist',
-    'cart'
+    'cart',
+    'orders',
 ]
 
 
