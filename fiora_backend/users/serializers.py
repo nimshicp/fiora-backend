@@ -54,7 +54,7 @@ class LoginSerializer(serializers.Serializer):
         email = data["email"]
         password = data["password"]
 
-        user = authenticate(email=email, password=password)
+        user = authenticate(username=email, password=password)
 
         if not user:
             raise AuthenticationFailed("Invalid email or password")

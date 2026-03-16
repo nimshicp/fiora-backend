@@ -12,7 +12,16 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+]
+
 AUTH_USER_MODEL = "users.User"
 
 GOOGLE_CLIENT_ID = "849764160450-506j3qom5anr1j9b30k1j3o2c0g4dtig.apps.googleusercontent.com"
@@ -49,6 +58,7 @@ INSTALLED_APPS = [
     'wishlist',
     'cart',
     'orders',
+    'django_rest_passwordreset',
 ]
 
 
@@ -66,14 +76,14 @@ REST_FRAMEWORK = {
 }
 from datetime import timedelta
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    
 }
 
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -162,3 +172,13 @@ STATIC_URL = 'static/'
 
 import os
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = "nimshicp2003@gmail.com"
+EMAIL_HOST_PASSWORD = "akcz jwts ogpq buxs"
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
