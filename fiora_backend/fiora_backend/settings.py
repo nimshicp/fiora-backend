@@ -53,12 +53,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "corsheaders",
     'rest_framework',
+    'drf_yasg',
     'users',
     'products',
     'wishlist',
     'cart',
     'orders',
     'django_rest_passwordreset',
+    'admin_panel',
 ]
 
 
@@ -182,3 +184,15 @@ EMAIL_HOST_USER = "nimshicp2003@gmail.com"
 EMAIL_HOST_PASSWORD = "akcz jwts ogpq buxs"
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
+}

@@ -1,17 +1,15 @@
-from rest_framework.generics import ListAPIView
-from .models import Product
-from .serializers import ProductSerializer
+from rest_framework import generics
 from rest_framework.permissions import AllowAny
+from .models import Product,Category
+from .serializers import ProductSerializer,CategorySerializer
 
-
-class ProductListAPIView(ListAPIView):
-     
+# ✅ GET + POST
+class ProductListAPIView(generics.ListCreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = ProductSerializer
 
     def get_queryset(self):
-
-        queryset = Product.objects.all()
+        queryset = Product.objects.all().order_by('-id')
 
         category = self.request.query_params.get("category")
 
@@ -19,13 +17,15 @@ class ProductListAPIView(ListAPIView):
             queryset = queryset.filter(category__name=category)
 
         return queryset
-    
-from rest_framework.generics import RetrieveAPIView
 
 
-class ProductDetailAPIView(RetrieveAPIView):
-
+# ✅ GET (single) + PATCH + DELETE
+class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    permission_classes = [AllowAny]
 
-    serializer_class = ProductSerializer 
-    permission_classes = [AllowAny]   
+class CategoryListAPIView(generics.ListAPIView):
+    permission_classes = [AllowAny]
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer    

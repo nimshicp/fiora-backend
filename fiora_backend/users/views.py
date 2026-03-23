@@ -16,23 +16,38 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.core.mail import send_mail
+from drf_yasg.utils import swagger_auto_schema
 
 
 class RegisterAPIView(APIView):
     permission_classes = [AllowAny]
-
+    
+    @swagger_auto_schema(request_body=RegisterSerializer)
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+
+        # ✅ SAVE USER
+        user = serializer.save()
+
+        # ✅ SEND EMAIL
+        send_mail(
+            "Welcome 🎉",
+            f"Hi {user.username}, your account was created successfully!",
+            settings.EMAIL_HOST_USER,
+            [user.email],
+            fail_silently=False,
+        )
+
         return Response(
-            {"message": "User registered successfully"}, status=status.HTTP_201_CREATED
+            {"message": "User registered successfully"},
+            status=status.HTTP_201_CREATED
         )
 
 
 class LoginAPIView(APIView):
     permission_classes = [AllowAny]
-
+    @swagger_auto_schema(request_body=LoginSerializer)
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -45,6 +60,7 @@ class LoginAPIView(APIView):
             {
                 "access": access_token,
                 "username": user.username,
+                "role": "admin" if user.is_staff else "user",
             },
             status=status.HTTP_200_OK,
         )
