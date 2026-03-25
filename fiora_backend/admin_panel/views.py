@@ -13,6 +13,11 @@ from orders.models import Order
 from .serializers import AdminOrderSerializer
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from django.contrib import admin
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
+from orders.utils import handle_cancel_order
+
 
 
 
@@ -176,8 +181,12 @@ class AdminOrderStatusUpdateAPIView(APIView):
         except Order.DoesNotExist:
             return Response({"error": "Order not found"}, status=404)
 
-        order.status = new_status
-        order.save()
+        if new_status == "cancelled":
+            
+            handle_cancel_order(order)
+        else:
+            order.status = new_status
+            order.save()
 
         return Response({
             "success": True,
@@ -198,10 +207,6 @@ class AdminOrderStatsAPIView(APIView):
             "cancelled": Order.objects.filter(status="cancelled").count(),
         })    
 
-
-
-
-
 class AdminUserListAPIView(APIView):
     permission_classes = [IsAdminUser]
 
@@ -211,7 +216,7 @@ class AdminUserListAPIView(APIView):
         data = []
 
         for user in users:
-            orders= user.orders.all()
+            orders = user.orders.all()
 
             total_orders = orders.count()
             total_spent = sum(
@@ -223,7 +228,10 @@ class AdminUserListAPIView(APIView):
                 "Username": user.username,
                 "email": user.email,
                 "isBlock": not user.is_active,
-                "role": "admin" if user.is_staff else "user",
+
+                # ✅ FIX: use role field (IMPORTANT)
+                "role": user.role,
+
                 "orders": [
                     {
                         "total": o.total,
@@ -232,7 +240,8 @@ class AdminUserListAPIView(APIView):
                 ]
             })
 
-        return Response(data)  
+        return Response(data)
+
 
 
 
@@ -258,13 +267,37 @@ class AdminUserUpdateAPIView(APIView):
         except User.DoesNotExist:
             return Response({"error": "User not found"}, status=404)
 
-        # Block / Unblock
-        if "isBlock" in request.data:
-            user.is_active = not request.data.get("isBlock")
+        current_user = request.user
 
-        # Role change
+        # 🚫 Prevent self modification
+        if user.id == current_user.id:
+            return Response({"error": "You cannot modify yourself"}, status=400)
+
+        # 🚫 Prevent modifying superadmin
+        if user.role == "superadmin":
+            return Response({"error": "Cannot modify superadmin"}, status=400)
+
+        # 🔴 ROLE CHANGE (ONLY SUPERADMIN)
         if "role" in request.data:
-            user.is_staff = request.data["role"] == "admin"
+            if current_user.role != "superadmin":
+                return Response({"error": "Only superadmin can change roles"}, status=403)
+
+            new_role = request.data["role"]
+
+            if new_role not in ["admin", "user"]:
+                return Response({"error": "Invalid role"}, status=400)
+
+            user.role = new_role
+
+            # update is_staff automatically
+            user.is_staff = new_role == "admin"
+
+        # 🟡 BLOCK / UNBLOCK (ADMIN + SUPERADMIN)
+        if "isBlock" in request.data:
+            if current_user.role not in ["admin", "superadmin"]:
+                return Response({"error": "Not allowed"}, status=403)
+
+            user.is_active = not request.data.get("isBlock")
 
         user.save()
 
@@ -273,5 +306,26 @@ class AdminUserUpdateAPIView(APIView):
             "Username": user.username,
             "email": user.email,
             "isBlock": not user.is_active,
-            "role": "admin" if user.is_staff else "user"
+            "role": user.role
         })
+    
+
+
+
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ["id", "user", "order_status"]
+
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+
+        # 🔔 send notification
+        channel_layer = get_channel_layer()
+
+        async_to_sync(channel_layer.group_send)(
+            f"user_{obj.user.id}",
+
+            {
+                "type": "send_notification",
+                "message": f"Your order is now {obj.order_status}"
+            }
+        )    

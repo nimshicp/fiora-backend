@@ -6,6 +6,7 @@ from .managers import UserManager
 class User(AbstractBaseUser, PermissionsMixin):
 
     ROLE_CHOICES = (
+        ("superadmin", "Super Admin"),
         ("admin", "Admin"),
         ("user", "User"),
     )

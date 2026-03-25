@@ -21,7 +21,7 @@ from drf_yasg.utils import swagger_auto_schema
 
 class RegisterAPIView(APIView):
     permission_classes = [AllowAny]
-    
+
     @swagger_auto_schema(request_body=RegisterSerializer)
     def post(self, request):
         serializer = RegisterSerializer(data=request.data)
@@ -60,7 +60,7 @@ class LoginAPIView(APIView):
             {
                 "access": access_token,
                 "username": user.username,
-                "role": "admin" if user.is_staff else "user",
+                "role": user.role,
             },
             status=status.HTTP_200_OK,
         )
@@ -142,40 +142,38 @@ class ProfileAPIView(APIView):
 
 
 class GoogleLoginAPIView(APIView):
-
     def post(self, request):
-
         token = request.data.get("token")
 
-        if not token:
-            return Response({"error": "Token missing"}, status=400)
-
         try:
-
             idinfo = id_token.verify_oauth2_token(
-                token, requests.Request(), settings.GOOGLE_CLIENT_ID
+                token,
+                requests.Request(),
+                settings.GOOGLE_CLIENT_ID
             )
 
             email = idinfo["email"]
             name = idinfo.get("name", "")
 
             user, created = User.objects.get_or_create(
-                email=email, defaults={"username": name.replace(" ", "").lower()}
+                email=email,
+                defaults={"username":name}
             )
 
             refresh = RefreshToken.for_user(user)
 
-            return Response(
-                {
-                    "access": str(refresh.access_token),
-                    "refresh": str(refresh),
+            return Response({
+                "access": str(refresh.access_token),
+                "refresh": str(refresh),
+                "user": {
+                    "email": user.email,
+                    "Username": user.username,
+                    "role": user.role
                 }
-            )
+            })
 
-        except ValueError:
-            return Response(
-                {"error": "Invalid Google token"}, status=status.HTTP_400_BAD_REQUEST
-            )
+        except Exception:
+            return Response({"error": "Invalid token"}, status=400)
 
 
 class ForgotPasswordAPIView(APIView):

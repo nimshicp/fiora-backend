@@ -12,19 +12,16 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
 ]
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
 
 AUTH_USER_MODEL = "users.User"
-
-GOOGLE_CLIENT_ID = "849764160450-506j3qom5anr1j9b30k1j3o2c0g4dtig.apps.googleusercontent.com"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +36,10 @@ SECRET_KEY = 'django-insecure-bk9^hc_u99^-mv=jmj0ql19awa5)&vc0q8-$-()^sadpld7z&x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+
+GOOGLE_CLIENT_ID="663068492252-n4972t46s2s2663lugriok0qaetotf6t.apps.googleusercontent.com"
+
 
 
 # Application definition
@@ -61,8 +61,17 @@ INSTALLED_APPS = [
     'orders',
     'django_rest_passwordreset',
     'admin_panel',
+    "channels"  
 ]
 
+ASGI_APPLICATION = "fiora_backend.asgi.application"
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -93,6 +102,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'fiora_backend.urls'
@@ -124,8 +134,8 @@ DATABASES = {
         'NAME': 'fiora_db',
         'USER': 'postgres',
         'PASSWORD': 'nims@123',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'HOST': 'localhost',       
+        'PORT': '5433',      
     }
 }
 
@@ -172,6 +182,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+
+
 import os
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -196,3 +209,10 @@ SWAGGER_SETTINGS = {
         }
     }
 }
+
+
+import os
+
+RAZORPAY_KEY_ID = "rzp_test_SV0Thlvfl4wHJi"
+RAZORPAY_SECRET = "Spt394RHA2uTcV3iRBHvbcdE"
+
