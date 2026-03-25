@@ -167,7 +167,7 @@ class GoogleLoginAPIView(APIView):
                 "refresh": str(refresh),
                 "user": {
                     "email": user.email,
-                    "Username": user.username,
+                    "username": user.username,
                     "role": user.role
                 }
             })

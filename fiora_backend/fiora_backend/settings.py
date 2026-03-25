@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -31,14 +32,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bk9^hc_u99^-mv=jmj0ql19awa5)&vc0q8-$-()^sadpld7z&x'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
-GOOGLE_CLIENT_ID="663068492252-n4972t46s2s2663lugriok0qaetotf6t.apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
 
 
 
@@ -131,11 +132,11 @@ WSGI_APPLICATION = 'fiora_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fiora_db',
-        'USER': 'postgres',
-        'PASSWORD': 'nims@123',
-        'HOST': 'localhost',       
-        'PORT': '5433',      
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
@@ -193,8 +194,8 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = "nimshicp2003@gmail.com"
-EMAIL_HOST_PASSWORD = "akcz jwts ogpq buxs"
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
@@ -213,6 +214,5 @@ SWAGGER_SETTINGS = {
 
 import os
 
-RAZORPAY_KEY_ID = "rzp_test_SV0Thlvfl4wHJi"
-RAZORPAY_SECRET = "Spt394RHA2uTcV3iRBHvbcdE"
-
+RAZORPAY_KEY_ID = config('RAZORPAY_KEY_ID')
+RAZORPAY_SECRET = config('RAZORPAY_SECRET')
