@@ -172,8 +172,9 @@ class GoogleLoginAPIView(APIView):
                 }
             })
 
-        except Exception:
-            return Response({"error": "Invalid token"}, status=400)
+        except Exception as e:
+            print("GOOGLE ERROR:", str(e))
+            return Response({"error": str(e)}, status=400)
 
 
 class ForgotPasswordAPIView(APIView):
