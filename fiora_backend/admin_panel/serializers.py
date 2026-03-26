@@ -4,7 +4,7 @@ from orders.serializers import OrderItemSerializer
 
 
 class AdminOrderSerializer(serializers.ModelSerializer):
-    user_name = serializers.CharField(source="user.full_name", read_only=True)
+    user_name = serializers.CharField(source="user.username", read_only=True)
     user_email = serializers.EmailField(source="user.email", read_only=True)
 
     items = OrderItemSerializer(many=True, read_only=True)

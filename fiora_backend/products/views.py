@@ -12,11 +12,26 @@ class ProductListAPIView(generics.ListCreateAPIView):
         queryset = Product.objects.all().order_by('-id')
 
         category = self.request.query_params.get("category")
+        search = self.request.query_params.get("search", "").strip()
+        stock = self.request.query_params.get("stock")
 
         if category:
             queryset = queryset.filter(category__name=category)
 
+        if search:
+            queryset = queryset.filter(name__icontains=search)
+
+        if stock == "low":
+            queryset = queryset.filter(stock__gt=0, stock__lt=10)
+        elif stock == "out":
+            queryset = queryset.filter(stock=0)
+
         return queryset
+
+    def paginate_queryset(self, queryset):
+        if self.request.query_params.get("all") == "true":
+            return None
+        return super().paginate_queryset(queryset)
 
 
 # ✅ GET (single) + PATCH + DELETE

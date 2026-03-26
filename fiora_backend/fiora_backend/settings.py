@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "daphne",
     'django.contrib.staticfiles',
     "corsheaders",
     'rest_framework',
@@ -62,7 +63,8 @@ INSTALLED_APPS = [
     'orders',
     'django_rest_passwordreset',
     'admin_panel',
-    "channels"  
+    "channels"  ,
+    
 ]
 
 ASGI_APPLICATION = "fiora_backend.asgi.application"

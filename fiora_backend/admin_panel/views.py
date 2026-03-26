@@ -17,6 +17,27 @@ from django.contrib import admin
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 from orders.utils import handle_cancel_order
+from rest_framework.pagination import PageNumberPagination
+
+
+class AdminListPagination(PageNumberPagination):
+    page_size = 8
+
+
+def serialize_admin_user(user):
+    return {
+        "id": user.id,
+        "Username": user.username,
+        "email": user.email,
+        "isBlock": not user.is_active,
+        "role": user.role,
+        "orders": [
+            {
+                "total": o.total,
+                "paymentStatus": o.payment_status
+            } for o in user.orders.all()
+        ]
+    }
 
 
 
@@ -145,12 +166,18 @@ class AdminOrderListView(APIView):
                 orders = orders.filter(id=int(search))
             else:
                 orders = orders.filter(
-                    Q(user__full_name__icontains=search) |
+                    Q(user__username__icontains=search) |
                     Q(user__email__icontains=search)
                 )
 
-        serializer = AdminOrderSerializer(orders, many=True)
-        return Response(serializer.data)        
+        if request.GET.get("all") == "true":
+            serializer = AdminOrderSerializer(orders, many=True)
+            return Response(serializer.data)
+
+        paginator = AdminListPagination()
+        page = paginator.paginate_queryset(orders, request)
+        serializer = AdminOrderSerializer(page, many=True)
+        return paginator.get_paginated_response(serializer.data)
     
 
 class AdminOrderStatusUpdateAPIView(APIView):
@@ -188,6 +215,15 @@ class AdminOrderStatusUpdateAPIView(APIView):
             order.status = new_status
             order.save()
 
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            f"user_{order.user.id}",
+            {
+                "type": "send_notification",
+                "message": f"Your order is now {order.status}"
+            }
+        )
+
         return Response({
             "success": True,
             "order_id": order.id,
@@ -211,36 +247,23 @@ class AdminUserListAPIView(APIView):
     permission_classes = [IsAdminUser]
 
     def get(self, request):
-        users = User.objects.all().order_by("-id")
+        search = request.GET.get("search", "").strip()
 
-        data = []
+        users = User.objects.prefetch_related("orders").order_by("-id")
 
-        for user in users:
-            orders = user.orders.all()
-
-            total_orders = orders.count()
-            total_spent = sum(
-                o.total for o in orders if o.payment_status == "paid"
+        if search:
+            users = users.filter(
+                Q(email__icontains=search) |
+                Q(username__icontains=search)
             )
 
-            data.append({
-                "id": user.id,
-                "Username": user.username,
-                "email": user.email,
-                "isBlock": not user.is_active,
+        if request.GET.get("all") == "true":
+            return Response([serialize_admin_user(user) for user in users])
 
-                # ✅ FIX: use role field (IMPORTANT)
-                "role": user.role,
-
-                "orders": [
-                    {
-                        "total": o.total,
-                        "paymentStatus": o.payment_status
-                    } for o in orders
-                ]
-            })
-
-        return Response(data)
+        paginator = AdminListPagination()
+        page = paginator.paginate_queryset(users, request)
+        data = [serialize_admin_user(user) for user in page]
+        return paginator.get_paginated_response(data)
 
 
 
@@ -269,15 +292,15 @@ class AdminUserUpdateAPIView(APIView):
 
         current_user = request.user
 
-        # 🚫 Prevent self modification
+        
         if user.id == current_user.id:
             return Response({"error": "You cannot modify yourself"}, status=400)
 
-        # 🚫 Prevent modifying superadmin
+        
         if user.role == "superadmin":
             return Response({"error": "Cannot modify superadmin"}, status=400)
 
-        # 🔴 ROLE CHANGE (ONLY SUPERADMIN)
+        
         if "role" in request.data:
             if current_user.role != "superadmin":
                 return Response({"error": "Only superadmin can change roles"}, status=403)
@@ -313,7 +336,7 @@ class AdminUserUpdateAPIView(APIView):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ["id", "user", "order_status"]
+    list_display = ["id", "user", "status"]
 
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
@@ -326,6 +349,6 @@ class OrderAdmin(admin.ModelAdmin):
 
             {
                 "type": "send_notification",
-                "message": f"Your order is now {obj.order_status}"
+                "message": f"Your order is now {obj.status}"
             }
         )    
