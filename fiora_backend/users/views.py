@@ -27,10 +27,10 @@ class RegisterAPIView(APIView):
         serializer = RegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        # ✅ SAVE USER
+        # SAVE USER
         user = serializer.save()
 
-        # ✅ SEND EMAIL
+        #  SEND EMAIL
         send_mail(
             "Welcome 🎉",
             f"Hi {user.username}, your account was created successfully!",

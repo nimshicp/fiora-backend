@@ -62,7 +62,7 @@ class CreateOrderView(APIView):
 
             order = serializer.save()
 
-            # 🔥 REDUCE STOCK HERE
+            # REDUCE STOCK HERE
             for item in order.items.all():
                 product = item.product
 
