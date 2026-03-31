@@ -1,0 +1,870 @@
+{
+  "users": [
+    {
+      "id": "fdce",
+      "Username": "nimshi",
+      "email": "nimshicp2003@gmail.com",
+      "password": "12345678",
+      "cart": [],
+      "wishlist": [
+        {
+          "id": "3",
+          "name": "Universal Harmony",
+          "price": 95.99,
+          "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+          "category": "unisex",
+          "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+          "stock": 8
+        }
+      ],
+      "orders": [
+        {
+          "id": 1760340511398,
+          "userId": "fdce",
+          "items": [
+            {
+              "id": "1",
+              "name": "Rose Elegance",
+              "price": 89.99,
+              "image": "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg",
+              "category": "women",
+              "description": "A delicate and romantic fragrance featuring notes of Bulgarian rose, peony, and white musk. Perfect for special occasions and evening wear.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 89.99,
+          "status": "delivered",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "UPI",
+          "paymentStatus": "paid",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "nimshicp2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-13T07:28:31.398Z",
+          "updatedAt": "2025-10-13T07:28:44.550Z"
+        },
+        {
+          "id": 1760350250454,
+          "userId": "fdce",
+          "items": [
+            {
+              "id": "2",
+              "name": "Noir Mystique",
+              "price": 79.99,
+              "image": "https://images.pexels.com/photos/13882813/pexels-photo-13882813.jpeg",
+              "category": "men",
+              "description": "A bold and mysterious scent with dark amber, leather, and sandalwood notes. Ideal for the modern gentleman who commands attention.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 79.99,
+          "status": "cancelled",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "nimshicp2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-13T10:10:50.454Z",
+          "updatedAt": "2025-10-13T10:10:55.655Z"
+        },
+        {
+          "id": 1760431057298,
+          "userId": "fdce",
+          "items": [
+            {
+              "id": "2",
+              "name": "Noir Mystique",
+              "price": 79.99,
+              "image": "https://images.pexels.com/photos/13882813/pexels-photo-13882813.jpeg",
+              "category": "men",
+              "description": "A bold and mysterious scent with dark amber, leather, and sandalwood notes. Ideal for the modern gentleman who commands attention.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 79.99,
+          "status": "delivered",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "nimshicp2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-14T08:37:37.298Z",
+          "updatedAt": "2025-10-14T08:37:41.227Z"
+        },
+        {
+          "id": 1760434662416,
+          "userId": "fdce",
+          "items": [
+            {
+              "id": "4",
+              "name": "Vanilla Dream",
+              "price": 75.99,
+              "image": "https://images.pexels.com/photos/28843743/pexels-photo-28843743.jpeg",
+              "category": "women",
+              "description": "Sweet and comforting fragrance with Madagascar vanilla, tonka bean, and soft floral undertones. Like a warm embrace in a bottle.",
+              "stock": 10,
+              "quantity": 1
+            },
+            {
+              "id": "1",
+              "name": "Rose Elegance",
+              "price": 89.99,
+              "image": "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg",
+              "category": "women",
+              "description": "A delicate and romantic fragrance featuring notes of Bulgarian rose, peony, and white musk. Perfect for special occasions and evening wear.",
+              "stock": 10,
+              "quantity": 2
+            }
+          ],
+          "total": 255.96999999999997,
+          "status": "delivered",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "nimshicp2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-14T09:37:42.416Z",
+          "updatedAt": "2025-10-14T09:39:02.924Z"
+        },
+        {
+          "id": 1760512448083,
+          "userId": "fdce",
+          "items": [
+            {
+              "id": "2",
+              "name": "Noir Mystique",
+              "price": 79.99,
+              "image": "https://images.pexels.com/photos/13882813/pexels-photo-13882813.jpeg",
+              "category": "men",
+              "description": "A bold and mysterious scent with dark amber, leather, and sandalwood notes. Ideal for the modern gentleman who commands attention.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 79.99,
+          "status": "cancelled",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "cancelled",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "nimshicp2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-15T07:14:08.083Z",
+          "updatedAt": "2025-10-15T07:14:35.286Z",
+          "cancelledAt": "2025-10-15T07:14:35.286Z"
+        },
+        {
+          "id": 1760512751223,
+          "userId": "fdce",
+          "items": [
+            {
+              "id": "7",
+              "name": "Midnight Bloom",
+              "price": 99.99,
+              "image": "https://images.unsplash.com/photo-1593487568720-92097fb460fb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "category": "women",
+              "description": "An intoxicating evening fragrance with jasmine, gardenia, and dark patchouli. For the woman who embraces her sensual side.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 99.99,
+          "status": "confirmed",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "nimshicp2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-15T07:19:11.223Z",
+          "updatedAt": "2025-10-15T07:19:14.483Z"
+        },
+        {
+          "id": 1761747967154,
+          "userId": "fdce",
+          "items": [
+            {
+              "id": "3",
+              "name": "Universal Harmony",
+              "price": 95.99,
+              "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+              "category": "unisex",
+              "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+              "stock": 8,
+              "quantity": 1
+            }
+          ],
+          "total": 95.99,
+          "status": "confirmed",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "nimshicp2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-29T14:26:07.154Z",
+          "updatedAt": "2025-10-29T14:26:14.926Z"
+        },
+        {
+          "id": 1762271961883,
+          "userId": "fdce",
+          "items": [
+            {
+              "id": "3",
+              "name": "Universal Harmony",
+              "price": 95.99,
+              "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+              "category": "unisex",
+              "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+              "stock": 6,
+              "quantity": 1
+            }
+          ],
+          "total": 95.99,
+          "status": "shipped",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "nimshicp2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-11-04T15:59:21.883Z",
+          "updatedAt": "2025-11-04T15:59:27.262Z"
+        }
+      ],
+      "isBlock": false,
+      "role": "admin"
+    },
+    {
+      "id": "c1a4",
+      "Username": "irfan",
+      "email": "irfan@gmail.com",
+      "password": "11111111",
+      "cart": [
+        {
+          "id": "5",
+          "name": "Ocean Breeze",
+          "price": 82.99,
+          "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=853&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "category": "men",
+          "description": "Fresh aquatic scent with sea salt, bergamot, and marine notes. Evokes the crisp, clean air of coastal mornings.",
+          "stock": 10,
+          "quantity": 1
+        }
+      ],
+      "wishlist": [],
+      "orders": [],
+      "role": "user",
+      "isBlock": true
+    },
+    {
+      "id": "8d5e",
+      "Username": "finu",
+      "email": "farhanmuhammed119@gmail.com",
+      "password": "00000000",
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "isBlock": false
+    },
+    {
+      "id": "8b81",
+      "Username": "sufail",
+      "email": "sufail2003@gmail.com",
+      "password": "123456789",
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "isBlock": false,
+      "role": "user"
+    },
+    {
+      "id": "2b9a",
+      "Username": "nafiya",
+      "email": "nafiya2003@gmail.com",
+      "password": "11111111",
+      "cart": [],
+      "wishlist": [],
+      "orders": [
+        {
+          "id": 1760882121917,
+          "userId": "2b9a",
+          "items": [
+            {
+              "id": "3",
+              "name": "Universal Harmony",
+              "price": 95.99,
+              "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+              "category": "unisex",
+              "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+              "stock": 9,
+              "quantity": 1
+            }
+          ],
+          "total": 95.99,
+          "status": "cancelled",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "Nafiya",
+            "email": "nafiya2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-19T13:55:21.917Z",
+          "updatedAt": "2025-10-19T13:55:26.308Z"
+        },
+        {
+          "id": 1761211568576,
+          "userId": "2b9a",
+          "items": [
+            {
+              "id": "3",
+              "name": "Universal Harmony",
+              "price": 95.99,
+              "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+              "category": "unisex",
+              "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+              "stock": 8,
+              "quantity": 1
+            }
+          ],
+          "total": 95.99,
+          "status": "delivered",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "nafiya",
+            "email": "nafiya2003@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-23T09:26:08.576Z",
+          "updatedAt": "2025-10-23T09:26:08.577Z"
+        }
+      ],
+      "role": "admin"
+    },
+    {
+      "id": "78c1",
+      "Username": "Farhan",
+      "email": "farhan@gmail.com",
+      "password": "12345678",
+      "isAdmin": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "isBlock": false
+    },
+    {
+      "id": "123f",
+      "Username": "zayan",
+      "email": "admin@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "isActive": true,
+      "isBlock": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [
+        {
+          "id": 1761196082403,
+          "userId": "123f",
+          "items": [
+            {
+              "id": "3",
+              "name": "Universal Harmony",
+              "price": 95.99,
+              "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+              "category": "unisex",
+              "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+              "stock": 8,
+              "quantity": 1
+            }
+          ],
+          "total": 95.99,
+          "status": "delivered",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "UPI",
+          "paymentStatus": "paid",
+          "customerInfo": {
+            "name": "Zayan",
+            "email": "admin@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-23T05:08:02.403Z",
+          "updatedAt": "2025-10-23T05:08:28.011Z"
+        },
+        {
+          "id": 1761199462233,
+          "userId": "123f",
+          "items": [
+            {
+              "id": "4",
+              "name": "Vanilla Dream",
+              "price": 75.99,
+              "image": "https://images.pexels.com/photos/28843743/pexels-photo-28843743.jpeg",
+              "category": "women",
+              "description": "Sweet and comforting fragrance with Madagascar vanilla, tonka bean, and soft floral undertones. Like a warm embrace in a bottle.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 75.99,
+          "status": "cancelled",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "",
+          "paymentStatus": "cancelled",
+          "customerInfo": {
+            "name": "Nimshi cp",
+            "email": "admin@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-10-23T06:04:22.233Z",
+          "updatedAt": "2025-11-03T04:08:30.846Z",
+          "cancelledAt": "2025-11-03T04:08:30.846Z"
+        },
+        {
+          "id": 1762142882285,
+          "userId": "123f",
+          "items": [
+            {
+              "id": "10",
+              "name": "Amber Nights",
+              "price": 85.99,
+              "image": "https://images.unsplash.com/photo-1599342166997-58552e91d9f5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+              "category": "men",
+              "description": "Warm amber and sandalwood fragrance with hints of spice. Perfect for evening wear and intimate occasions.",
+              "stock": 10,
+              "quantity": 2
+            },
+            {
+              "id": "3",
+              "name": "Universal Harmony",
+              "price": 95.99,
+              "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+              "category": "unisex",
+              "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+              "stock": 7,
+              "quantity": 1
+            }
+          ],
+          "total": 267.96999999999997,
+          "status": "cancelled",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "UPI",
+          "paymentStatus": "refunded",
+          "customerInfo": {
+            "name": "zayan",
+            "email": "admin@gmail.com",
+            "phone": "9544441112"
+          },
+          "createdAt": "2025-11-03T04:08:02.285Z",
+          "updatedAt": "2025-11-05T09:14:53.449Z",
+          "paidAt": "2025-11-03T04:08:14.153Z",
+          "cancelledAt": "2025-11-05T09:14:53.449Z"
+        },
+        {
+          "id": 1762334065951,
+          "userId": "123f",
+          "items": [
+            {
+              "id": "11",
+              "name": "Lemon Verbena",
+              "price": 65.99,
+              "image": "https://wallpaperbat.com/img/856553-perfume-photo-download-free-perfume-stock-photo-hd-image.jpg",
+              "category": "unisex",
+              "description": "Fresh and zesty citrus fragrance with lemon, lime, and herbal notes. Energizing and vibrant for daily use.",
+              "stock": 10,
+              "quantity": 1
+            },
+            {
+              "id": "3",
+              "name": "Universal Harmony",
+              "price": 95.99,
+              "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+              "category": "unisex",
+              "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+              "stock": 5,
+              "quantity": 1
+            },
+            {
+              "id": "4",
+              "name": "Vanilla Dream",
+              "price": 75.99,
+              "image": "https://images.pexels.com/photos/28843743/pexels-photo-28843743.jpeg",
+              "category": "women",
+              "description": "Sweet and comforting fragrance with Madagascar vanilla, tonka bean, and soft floral undertones. Like a warm embrace in a bottle.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 237.96999999999997,
+          "status": "cancelled",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "UPI",
+          "paymentStatus": "refunded",
+          "customerInfo": {
+            "name": "zayan",
+            "email": "zayan@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-11-05T09:14:25.951Z",
+          "updatedAt": "2025-11-07T04:32:39.224Z",
+          "paidAt": "2025-11-05T09:14:39.063Z",
+          "cancelledAt": "2025-11-07T04:32:39.223Z"
+        },
+        {
+          "id": 1762337077250,
+          "userId": "123f",
+          "items": [
+            {
+              "id": "19",
+              "name": "Lily Serenade",
+              "price": 71.99,
+              "image": "https://images.pexels.com/photos/15348377/pexels-photo-15348377.jpeg",
+              "category": "women",
+              "description": "Elegant lily fragrance with hints of freesia and soft musk. Light, fresh, and perfect for daily wear.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 71.99,
+          "status": "delivered",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "cash on delivery",
+          "paymentStatus": "pending",
+          "customerInfo": {
+            "name": "zayan",
+            "email": "zayan@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-11-05T10:04:37.250Z",
+          "updatedAt": "2025-11-05T10:04:40.254Z"
+        },
+        {
+          "id": 1762489922492,
+          "userId": "123f",
+          "items": [
+            {
+              "id": "2",
+              "name": "Noir Mystique",
+              "price": 79.99,
+              "image": "https://images.pexels.com/photos/13882813/pexels-photo-13882813.jpeg",
+              "category": "men",
+              "description": "A bold and mysterious scent with dark amber, leather, and sandalwood notes. Ideal for the modern gentleman who commands attention.",
+              "stock": 10,
+              "quantity": 2
+            }
+          ],
+          "total": 159.98,
+          "status": "cancelled",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "UPI",
+          "paymentStatus": "paid",
+          "customerInfo": {
+            "name": "zayan",
+            "email": "zayan@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-11-07T04:32:02.492Z",
+          "updatedAt": "2025-11-07T04:32:16.891Z",
+          "paidAt": "2025-11-07T04:32:16.891Z"
+        },
+        {
+          "id": 1762524040412,
+          "userId": "123f",
+          "items": [
+            {
+              "id": "5",
+              "name": "Ocean Breeze",
+              "price": 82.99,
+              "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=853&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "category": "men",
+              "description": "Fresh aquatic scent with sea salt, bergamot, and marine notes. Evokes the crisp, clean air of coastal mornings.",
+              "stock": 10,
+              "quantity": 1
+            },
+            {
+              "id": "4",
+              "name": "Vanilla Dream",
+              "price": 75.99,
+              "image": "https://images.pexels.com/photos/28843743/pexels-photo-28843743.jpeg",
+              "category": "women",
+              "description": "Sweet and comforting fragrance with Madagascar vanilla, tonka bean, and soft floral undertones. Like a warm embrace in a bottle.",
+              "stock": 10,
+              "quantity": 1
+            },
+            {
+              "id": "3",
+              "name": "Universal Harmony",
+              "price": 95.99,
+              "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+              "category": "unisex",
+              "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+              "stock": 6,
+              "quantity": 1
+            },
+            {
+              "name": "Dior",
+              "price": 100,
+              "stock": 12,
+              "category": "unisex",
+              "description": "Sweet and comforting fragrance with Madagascar vanilla, tonka bean, and soft floral undertones. Like a warm embrace in a bottle.",
+              "image": "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg",
+              "id": "1761126625479",
+              "quantity": 1
+            }
+          ],
+          "total": 354.96999999999997,
+          "status": "cancelled",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "UPI",
+          "paymentStatus": "refunded",
+          "customerInfo": {
+            "name": "zayaan",
+            "email": "zayan@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-11-07T14:00:40.412Z",
+          "updatedAt": "2025-11-07T14:04:00.562Z",
+          "paidAt": "2025-11-07T14:00:51.224Z",
+          "cancelledAt": "2025-11-07T14:04:00.562Z"
+        },
+        {
+          "id": 1762524212967,
+          "userId": "123f",
+          "items": [
+            {
+              "id": "11",
+              "name": "Lemon Verbena",
+              "price": 65.99,
+              "image": "https://wallpaperbat.com/img/856553-perfume-photo-download-free-perfume-stock-photo-hd-image.jpg",
+              "category": "unisex",
+              "description": "Fresh and zesty citrus fragrance with lemon, lime, and herbal notes. Energizing and vibrant for daily use.",
+              "stock": 10,
+              "quantity": 1
+            }
+          ],
+          "total": 65.99,
+          "status": "delivered",
+          "shippingAddress": "Chakkapath house Mannarmala (po) pallipadi,Perinthalmanna,679325",
+          "paymentMethod": "UPI",
+          "paymentStatus": "paid",
+          "customerInfo": {
+            "name": "zayan",
+            "email": "zayan@gmail.com",
+            "phone": "09544441112"
+          },
+          "createdAt": "2025-11-07T14:03:32.967Z",
+          "updatedAt": "2025-11-07T14:03:46.563Z",
+          "paidAt": "2025-11-07T14:03:46.563Z"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "2",
+      "name": "Noir Mystique",
+      "price": 79.99,
+      "image": "https://images.pexels.com/photos/13882813/pexels-photo-13882813.jpeg",
+      "category": "men",
+      "description": "A bold and mysterious scent with dark amber, leather, and sandalwood notes. Ideal for the modern gentleman who commands attention.",
+      "stock": 8
+    },
+    {
+      "id": "3",
+      "name": "Universal Harmony",
+      "price": 95.99,
+      "image": "https://images.pexels.com/photos/16034366/pexels-photo-16034366.jpeg",
+      "category": "unisex",
+      "description": "A balanced blend of citrus top notes with warm base notes of amber and musk. Designed to complement any personality and occasion.",
+      "stock": 6
+    },
+    {
+      "id": "4",
+      "name": "Vanilla Dream",
+      "price": 75.99,
+      "image": "https://images.pexels.com/photos/28843743/pexels-photo-28843743.jpeg",
+      "category": "women",
+      "description": "Sweet and comforting fragrance with Madagascar vanilla, tonka bean, and soft floral undertones. Like a warm embrace in a bottle.",
+      "stock": 10
+    },
+    {
+      "id": "5",
+      "name": "Ocean Breeze",
+      "price": 82.99,
+      "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=853&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "category": "men",
+      "description": "Fresh aquatic scent with sea salt, bergamot, and marine notes. Evokes the crisp, clean air of coastal mornings.",
+      "stock": 10
+    },
+    {
+      "id": "6",
+      "name": "Citrus Fusion",
+      "price": 68.99,
+      "image": "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "category": "unisex",
+      "description": "Energetic blend of grapefruit, lemon, and orange with a hint of green tea. Perfect for daily wear and uplifting your mood.",
+      "stock": 10
+    },
+    {
+      "id": "7",
+      "name": "Midnight Bloom",
+      "price": 99.99,
+      "image": "https://images.unsplash.com/photo-1593487568720-92097fb460fb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "category": "women",
+      "description": "An intoxicating evening fragrance with jasmine, gardenia, and dark patchouli. For the woman who embraces her sensual side.",
+      "stock": 9
+    },
+    {
+      "id": "8",
+      "name": "Leather & Oak",
+      "price": 88.99,
+      "image": "https://images.pexels.com/photos/12563411/pexels-photo-12563411.jpeg",
+      "category": "men",
+      "description": "Robust and sophisticated scent combining aged leather, oakwood, and subtle tobacco notes. Timeless elegance for the discerning man.",
+      "stock": 10
+    },
+    {
+      "id": "9",
+      "name": "Jasmine Whisper",
+      "price": 72.99,
+      "image": "https://images.unsplash.com/photo-1566977776052-6e61e35bf9be?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1974",
+      "category": "women",
+      "description": "Soft floral scent with jasmine, lily, and vanilla notes. Light and airy, perfect for spring and daytime wear.",
+      "stock": 10
+    },
+    {
+      "id": "10",
+      "name": "Amber Nights",
+      "price": 85.99,
+      "image": "https://images.unsplash.com/photo-1599342166997-58552e91d9f5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+      "category": "men",
+      "description": "Warm amber and sandalwood fragrance with hints of spice. Perfect for evening wear and intimate occasions.",
+      "stock": 8
+    },
+    {
+      "id": "11",
+      "name": "Lemon Verbena",
+      "price": 65.99,
+      "image": "https://wallpaperbat.com/img/856553-perfume-photo-download-free-perfume-stock-photo-hd-image.jpg",
+      "category": "unisex",
+      "description": "Fresh and zesty citrus fragrance with lemon, lime, and herbal notes. Energizing and vibrant for daily use.",
+      "stock": 9
+    },
+    {
+      "id": "12",
+      "name": "Velvet Orchid",
+      "price": 92.99,
+      "image": "https://images.pexels.com/photos/21546978/pexels-photo-21546978.jpeg",
+      "category": "women",
+      "description": "Luxurious and sensual scent with orchid, vanilla, and musk. Sophisticated and captivating for special nights.",
+      "stock": 10
+    },
+    {
+      "id": "13",
+      "name": "Cedarwood Mist",
+      "price": 77.99,
+      "image": "https://images.pexels.com/photos/15096784/pexels-photo-15096784.jpeg",
+      "category": "men",
+      "description": "Earthy cedarwood combined with fresh misty notes. Elegant and subtle for daily office wear.",
+      "stock": 10
+    },
+    {
+      "id": "14",
+      "name": "Peach Blossom",
+      "price": 70.99,
+      "image": "https://images.pexels.com/photos/19004228/pexels-photo-19004228.jpeg",
+      "category": "women",
+      "description": "Delicate fruity floral fragrance with peach, rose, and soft musk. Sweet and playful for casual occasions.",
+      "stock": 10
+    },
+    {
+      "id": "15",
+      "name": "Spiced Leather",
+      "price": 89.99,
+      "image": "https://images.pexels.com/photos/7850600/pexels-photo-7850600.jpeg",
+      "category": "men",
+      "description": "Rich leather scent with spices and oud. Bold and masculine, perfect for confident personalities.",
+      "stock": 10
+    },
+    {
+      "id": "16",
+      "name": "Garden Rain",
+      "price": 74.99,
+      "image": "https://images.pexels.com/photos/19378922/pexels-photo-19378922.jpeg",
+      "category": "unisex",
+      "description": "Fresh and dewy fragrance inspired by morning rain in a garden. Light, airy, and perfect for daily use.",
+      "stock": 10
+    },
+    {
+      "id": "17",
+      "name": "Cocoa Dreams",
+      "price": 78.99,
+      "image": "https://images.pexels.com/photos/11711808/pexels-photo-11711808.jpeg",
+      "category": "women",
+      "description": "Sweet chocolatey scent with hints of vanilla and caramel. Cozy and comforting, ideal for winter evenings.",
+      "stock": 10
+    },
+    {
+      "id": "18",
+      "name": "Mystic Oud",
+      "price": 99.99,
+      "image": "https://images.pexels.com/photos/11171653/pexels-photo-11171653.jpeg",
+      "category": "men",
+      "description": "Luxurious oud scent combined with spices and amber. Deep, rich, and mysterious for special occasions.",
+      "stock": 10
+    },
+    {
+      "id": "19",
+      "name": "Lily Serenade",
+      "price": 71.99,
+      "image": "https://images.pexels.com/photos/15348377/pexels-photo-15348377.jpeg",
+      "category": "women",
+      "description": "Elegant lily fragrance with hints of freesia and soft musk. Light, fresh, and perfect for daily wear.",
+      "stock": 9
+    },
+    {
+      "id": "20",
+      "name": "Amber Storm",
+      "price": 94.99,
+      "image": "https://images.pexels.com/photos/10786706/pexels-photo-10786706.jpeg",
+      "category": "men",
+      "description": "Intense amber and sandalwood fragrance with a hint of spice. Bold and captivating for evening and formal occasions.",
+      "stock": 10
+    },
+    {
+      "name": "Dior",
+      "price": 100,
+      "stock": 12,
+      "category": "unisex",
+      "description": "Sweet and comforting fragrance with Madagascar vanilla, tonka bean, and soft floral undertones. Like a warm embrace in a bottle.",
+      "image": "https://images.pexels.com/photos/1961791/pexels-photo-1961791.jpeg",
+      "id": "1761126625479"
+    }
+  ]
+}
