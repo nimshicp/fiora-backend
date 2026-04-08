@@ -3,7 +3,7 @@ from rest_framework.permissions import AllowAny
 from .models import Product,Category
 from .serializers import ProductSerializer,CategorySerializer
 
-# ✅ GET + POST
+
 class ProductListAPIView(generics.ListCreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = ProductSerializer
@@ -34,7 +34,7 @@ class ProductListAPIView(generics.ListCreateAPIView):
         return super().paginate_queryset(queryset)
 
 
-# ✅ GET (single) + PATCH + DELETE
+# GET (single) + PATCH + DELETE
 class ProductDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

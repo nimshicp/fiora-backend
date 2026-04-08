@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # "daphne",
+    "daphne",
     'django.contrib.staticfiles',
     "corsheaders",
     'rest_framework',
@@ -63,21 +63,21 @@ INSTALLED_APPS = [
     'orders',
     'django_rest_passwordreset',
     'admin_panel',
-    # "channels"  ,
+    "channels"  ,
     
 ]
 
 ASGI_APPLICATION = "fiora_backend.asgi.application"
 
 
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [("redis", 6379)],
-#         },
-#     },
-# }
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("redis", 6379)],
+        },
+    },
+}
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -135,6 +135,8 @@ WSGI_APPLICATION = 'fiora_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+DB_SSLMODE = config('DB_SSLMODE', default='')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -143,9 +145,7 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT'),
-        'OPTIONS': {
-            'sslmode': 'require',   
-        },
+        'OPTIONS': ({'sslmode': DB_SSLMODE} if DB_SSLMODE else {}),
     }
 }
 

@@ -143,9 +143,9 @@ function AdminUsers() {
   };
 
   const getAdminBadge = (user) => {
-    if (user.role === "admin") {
+    if (user.role === "admin" || user.role === "superadmin") {
       return {
-        text: "Admin",
+        text: user.role === "superadmin" ? "Super Admin" : "Admin",
         color: "bg-purple-100 text-purple-800",
         icon: <Shield className="w-4 h-4" />,
       };
@@ -280,17 +280,17 @@ function AdminUsers() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div
-                          className={`flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center ${
-                            user.isBlock
-                              ? "bg-red-100"
-                              : user.role === "admin"
-                                ? "bg-purple-100"
-                                : "bg-blue-100"
-                          }`}
+                            className={`flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center ${
+                              user.isBlock
+                                ? "bg-red-100"
+                                : user.role === "admin" || user.role === "superadmin"
+                                  ? "bg-purple-100"
+                                  : "bg-blue-100"
+                            }`}
                         >
                           {user.isBlock ? (
                             <UserX className="w-5 h-5 text-red-600" />
-                          ) : user.role === "admin" ? (
+                          ) : user.role === "admin" || user.role === "superadmin" ? (
                             <Shield className="w-5 h-5 text-purple-600" />
                           ) : (
                             <Users className="w-5 h-5 text-blue-600" />
@@ -367,7 +367,7 @@ function AdminUsers() {
                               : ""
                           }
                           className={`flex items-center gap-1 px-3 py-1 rounded text-sm ${
-                            user.role === "admin"
+                            user.role === "admin" || user.role === "superadmin"
                               ? "bg-orange-100 text-orange-700 hover:bg-orange-200"
                               : "bg-purple-100 text-purple-700 hover:bg-purple-200"
                           } ${
@@ -376,12 +376,12 @@ function AdminUsers() {
                               : ""
                           }`}
                         >
-                          {user.role === "admin" ? (
+                          {user.role === "admin" || user.role === "superadmin" ? (
                             <ShieldOff className="w-4 h-4" />
                           ) : (
                             <Shield className="w-4 h-4" />
                           )}
-                          {user.role === "admin"
+                          {user.role === "admin" || user.role === "superadmin"
                             ? "Remove Admin"
                             : "Make Admin"}
                         </button>
