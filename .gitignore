@@ -9,8 +9,6 @@ venv/
 # environment variables
 .env
 
-# firebase key
-firebase_key.json
 
 # static build
 staticfiles/

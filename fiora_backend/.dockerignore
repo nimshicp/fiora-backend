@@ -1,19 +1,27 @@
-__pycache__
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
 
 .env
-venv
-env
-.venv
 
-.git
+venv/
+env/
+.venv/
+
+.git/
 .gitignore
+.github/
 
-node_modules
+node_modules/
 
-media
-staticfiles
+media/
+static/
+staticfiles/
+fiora/
 
 *.log
+*.sqlite3
+db.sqlite3
+
+.DS_Store
